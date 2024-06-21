@@ -64,7 +64,7 @@ body::before {
   z-index: 9999;
   opacity: 1; /* Initially visible */
   visibility: visible; /* Initially visible */
-  animation: hideLoader 5s forwards; /* Animation for hiding loader after 6 seconds */
+  animation: hideLoader 10s forwards; /* Animation for hiding loader after 6 seconds */
 }
 
 @keyframes hideLoader {
