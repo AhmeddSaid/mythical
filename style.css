@@ -35,7 +35,6 @@ body {
       #25283b22 100px 101px
     );
 }
-
 body::before {
   position: absolute;
   width: min(1400px, 90vw);
@@ -44,11 +43,83 @@ body::before {
   height: 90%;
   transform: translateX(-50%);
   content: "";
-  background-image: url(assets/bg.png);
+  background-image: url(assets/bg.webp);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: top center;
   pointer-events: none;
+}
+/* Loader styles */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d2d2d2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1; /* Initially visible */
+  visibility: visible; /* Initially visible */
+  animation: hideLoader 5s forwards; /* Animation for hiding loader after 6 seconds */
+}
+
+@keyframes hideLoader {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.semicircle {
+  scale: 2;
+}
+.semicircle,
+.semicircle div {
+  /*  Adjust the size of the entire animation here.
+      (Remove max size below to go above 300px.) */
+  width: 170px;
+  height: 170px;
+  /* Adjust the speed or timing function of the animation here. */
+  animation: 6s rotate141 infinite linear;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.semicircle div {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+.semicircle:before,
+.semicircle div:before {
+  content: "";
+  width: 100%;
+  height: 50%;
+  display: block;
+  background: radial-gradient(transparent, transparent 65%, #000 65%, #000);
+  background-size: 100% 200%;
+}
+
+@keyframes rotate141 {
+  to {
+    transform: rotate(360deg);
+  }
 }
 .banner {
   width: 100%;
@@ -134,7 +205,7 @@ body::before {
   font-size: 1em;
 }
 .banner .content .model {
-  background-image: url(assets/model.png);
+  background-image: url(assets/model.webp);
   width: 100%;
 
   height: 75vh;
